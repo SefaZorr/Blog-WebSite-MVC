@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Dtos.WriterForRegisterDto
+@{
+    ViewBag.Title = "AddWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <h1>Yeni Yazar Ekleme Sayfası</h1>
+</div>
+<div style="margin-left:5rem;margin-top:5rem">
+    @using (Html.BeginForm("AddWriter", "Register", FormMethod.Post))
+    {
+    <div class="form-group">
+        @Html.Label("Yazar Adı")
+        @Html.TextBoxFor(x => x.WriterFirstName, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.WriterFirstName)
+        <br /><br />
+        @Html.Label("Yazar Soyadı")
+        @Html.TextBoxFor(x => x.WriterLastName, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.WriterLastName)
+        <br /><br />
+        @Html.Label("Yazar Mail")
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.Email)
+        <br /><br />
+        @Html.Label("Yazar Şifre")
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.Password)
+        <br /><br />
+        @Html.Label("Yazar Hakkında Bilgi Girin")
+        @Html.TextBoxFor(x => x.WriterAbout, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.WriterAbout)
+        <br /><br />
+        @Html.Label("Yazar Başlığı Girin")
+        @Html.TextBoxFor(x => x.WriterTitle, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.WriterTitle)
+        <br /><br />
+        @Html.Label("Yazar Resmi URL Girin")
+        @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.WriterImage)
+        <br /><br />
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+
+    </div>
+    }
+</div>
+

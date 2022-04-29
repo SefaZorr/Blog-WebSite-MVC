@@ -1,0 +1,56 @@
+﻿@using EntityLayer.Concrete
+@model List<Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{ 
+    string state = "";
+    string stateColor = "";
+    string stateEvent = "";
+}
+<br />
+<div class="card">
+    <div class="card-body p-0">
+        <table class="table table-striped projects">
+            <tr>
+                <th>#</th>
+                <th>Kullanıcı Mail</th>
+                <th>Yetki</th>
+                <th>Status</th>
+                <th>Pasif Yap</th>
+                <th>Yetkisini Değiştir</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                if (item.AdminStatus == true)
+                {
+                    state = "Aktif";
+                    stateColor = "badge badge-success";
+                    stateEvent = "Pasif Yap";
+                }
+                if (item.AdminStatus == false)
+                {
+                    state = "Pasif";
+                    stateColor = "badge badge-danger";
+                    stateEvent = "Aktif Yap";
+                }
+                <tr>
+                    <th>@item.AdminID</th>
+                    <td>@item.AdminFirstName @item.AdminLastName</td>
+                    <td>@item.AdminRole</td>
+                    <td class="@stateColor py-1 mt-4 ml-5">
+                        @state
+                    </td>
+                    <td><a href="/Authorization/StatusChangedAdmin/@item.AdminID" class="btn btn-danger">@stateEvent</a></td>
+                    <td><a href="/Authorization/EditAdmin/@item.AdminID" class="btn btn-warning">Yetkisini Değiştir</a></td>
+                </tr>
+            }
+        </table>
+        <a href="/Register/AddAdmin" class="btn btn-info">Yeni Admin Tanımla</a>
+    </div>
+    
+</div>
+
+

@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Dtos.AdminForRegisterDto
+@{
+    ViewBag.Title = "AddAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    <h1>Yeni Admin Ekleme Sayfası</h1>
+</div>
+    @using (Html.BeginForm("AddAdmin", "Register", FormMethod.Post))
+    {
+    <div class="form-group">
+        @Html.Label("Admin Adı")
+        @Html.TextBoxFor(x => x.AdminFirstName, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.AdminFirstName)
+        <br />
+        @Html.Label("Admin Soyadı")
+        @Html.TextBoxFor(x => x.AdminLastName, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.AdminLastName)
+        <br />
+        @Html.Label("Admin Mail")
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.Email)
+        <br />
+        @Html.Label("Admin Şifre")
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.Password)
+        <br />
+        @Html.Label("Admin Rolünü Girin")
+        @Html.TextBoxFor(x => x.AdminRole, new { @class = "form-control", @style = "width:20rem" })
+        @Html.ValidationMessageFor(x => x.AdminRole)
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+
+    </div>
+    }
+
