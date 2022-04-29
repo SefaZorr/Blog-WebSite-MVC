@@ -1,3 +1,4 @@
+*.JavaScript linguist-detectable=false
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
@@ -62,4 +63,3 @@
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
 
-*.JavaScript linguist-detectable=false
