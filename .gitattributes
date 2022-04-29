@@ -2,6 +2,7 @@
 *.js linguist-detectable=false
 *.css linguist-detectable=false
 *.html linguist-detectable=false
+*.html -linguist-detectable=false
 *.scss linguist-detectable=false
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
