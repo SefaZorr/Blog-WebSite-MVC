@@ -12,6 +12,7 @@ namespace BusinessLayer.Abstract
         List<Admin> GetList();
         void AdminAdd(Admin admin);
         Admin GetByID(int id);
+
         void AdminDelete(Admin admin);
         void AdminUpdate(Admin admin);
         Admin GetByMail(string email);
